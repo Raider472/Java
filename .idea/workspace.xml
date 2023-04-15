@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7553dc8-160e-49ce-9f30-3617fa5bd3d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TD3/TD3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TD3/src/TD3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TD2/src/TD2.java" beforeDir="false" afterPath="$PROJECT_DIR$/TD2/src/TD2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/td2/TD2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/td2/TD2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
       <recent name="C:\Users\gabri\Documents\Java\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TD2 (1)">
+  <component name="RunManager" selected="Application.TD3">
     <configuration name="Helloworld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Helloworld" />
       <module name="td1" />
@@ -80,8 +81,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TD3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TD3" />
+      <module name="TD3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TD3" />
         <item itemvalue="Application.TD2 (1)" />
         <item itemvalue="Application.TD2" />
         <item itemvalue="Application.TD1Point2" />
