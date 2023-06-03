@@ -6,11 +6,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +35,8 @@ public class FilmController implements Initializable {
     private Button buttonSuprimer;
     @FXML
     private Button buttonSuprimerSeul;
+    @FXML
+    private Button buttonAjouterCSV;
 
     @FXML
     private TableView tableFilm;
@@ -84,18 +85,6 @@ public class FilmController implements Initializable {
         ObservableList<Film> films = tableFilm.getItems();
         films.add(filml);
         tableFilm.setItems(films);
-
-        List<List<String>> csv = getCsv();
-        for(int i = 1; i<csv.size(); i++) {
-            Film film = new Film();
-            film.setRang(Integer.parseInt(csv.get(i).get(0)));
-            film.setIdentifiant(csv.get(i).get(1));
-            film.setNom(csv.get(i).get(2));
-            film.setAnnee(Integer.parseInt(csv.get(i).get(3)));
-            film.setActeurPrincip(csv.get(i).get(4));
-            films.add(film);
-            tableFilm.setItems(films);
-        }
     }
 
     @FXML
@@ -116,9 +105,9 @@ public class FilmController implements Initializable {
         }
     }
 
-    public List<List<String>> getCsv() {
+    public List<List<String>> getCsv(String cheminFichier) {
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("Film.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(cheminFichier))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
@@ -130,5 +119,35 @@ public class FilmController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    private void ajouterCSV() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select CSV File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+
+        if (selectedFile != null) {
+            String filePath = selectedFile.getAbsolutePath();
+            ajouterCSVFunction(filePath);
+        }
+    }
+
+    public void ajouterCSVFunction(String cheminFichier) {
+        List<List<String>> csv = getCsv(cheminFichier);
+        ObservableList<Film> films = tableFilm.getItems();
+
+        for (int i = 1; i < csv.size(); i++) {
+            Film film = new Film();
+            film.setRang(Integer.parseInt(csv.get(i).get(0)));
+            film.setIdentifiant(csv.get(i).get(1));
+            film.setNom(csv.get(i).get(2));
+            film.setAnnee(Integer.parseInt(csv.get(i).get(3)));
+            film.setActeurPrincip(csv.get(i).get(4));
+            films.add(film);
+        }
+
+        tableFilm.setItems(films);
     }
 }

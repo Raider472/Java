@@ -19,6 +19,7 @@
             <Button fx:id="buttonAjouter" layoutX="362.0" layoutY="819.0" mnemonicParsing="false" onAction="#ajouterFilm" prefHeight="31.0" prefWidth="134.0" text="Ajouter" />
             <Button fx:id="buttonSuprimer" layoutX="537.0" layoutY="819.0" mnemonicParsing="false" onAction="#supprimerTousFilms" prefHeight="31.0" prefWidth="134.0" text="Supprimer les films" />
             <Button fx:id="buttonSuprimerSeul" layoutX="701.0" layoutY="819.0" mnemonicParsing="false" onAction="#supprimerUnFilm" prefHeight="31.0" prefWidth="134.0" text="Supprimer l'élement" />
+            <Button fx:id="buttonAjouterCSV" layoutX="205.0" layoutY="819.0" mnemonicParsing="false" onAction="#ajouterCSV" prefHeight="31.0" prefWidth="134.0" text="Ajouter CSV" />
             <TableView fx:id="tableFilm" layoutX="104.0" layoutY="14.0" prefHeight="457.0" prefWidth="825.0">
               <columns>
                 <TableColumn fx:id="columnRang" prefWidth="135.0" text="Rang" />
